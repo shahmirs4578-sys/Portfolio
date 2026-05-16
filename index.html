@@ -57,19 +57,36 @@
             <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(11, 12, 16, 1) 0%, rgba(11, 12, 16, 0.4) 100%); z-index: 1;"></div>
             
 		    <style>
-@keyframes premiumSlideIn {
-    0% { opacity: 0; transform: translateX(-60px); }
-    100% { opacity: 1; transform: translateX(0); }
-}
-@keyframes smoothFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+@keyframes premiumIntroAndFloat {
+    /* 0% to 25%: Premium Entrance Slide (Left to Right) & Fade In */
+    0% { 
+        opacity: 0; 
+        transform: translateX(-40px) translateY(0); 
+    }
+    25% { 
+        opacity: 1; 
+        transform: translateX(0) translateY(0); 
+    }
+    
+    /* 25% to 100%: Continuous Slow Floating Loop */
+    45% { 
+        transform: translateX(0) translateY(-12px); 
+    }
+    70% { 
+        transform: translateX(0) translateY(0); 
+    }
+    85% { 
+        transform: translateX(0) translateY(-12px); 
+    }
+    100% { 
+        transform: translateX(0) translateY(0); 
+    }
 }
 </style>
             
 			<div style="position: relative; z-index: 2; opacity: 0; animation: premiumSlideIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
     
-    <div class="content box style2" style="border-radius: 16px; animation: smoothFloat 4s ease-in-out infinite 1.4s;">
+    <div class="content box style2" style="position: relative; z-index: 2; border-radius: 16px; opacity: 0; animation: premiumIntroAndFloat 6s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
         <header>
             <h2>What I Do</h2>
         </header>
