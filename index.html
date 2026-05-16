@@ -185,6 +185,26 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+            <script>
+                const smokeBox = document.getElementById('one');
+                const smokeBgVideo = document.getElementById('smoke-bg-video');
 
+                if (smokeBox && smokeBgVideo) {
+                    smokeBox.addEventListener('mousemove', (e) => {
+                        // Get current mouse coordinates relative to the screen width/height
+                        const sensitivity = 40; // Turn this number up or down to adjust movement responsiveness
+                        const moveX = (e.clientX / window.innerWidth - 0.5) * sensitivity;
+                        const moveY = (e.clientY / window.innerHeight - 0.5) * sensitivity;
+
+                        // Updates the background position dynamically
+                        smokeBgVideo.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
+                   });
+
+                   // Smoothly realigns the video back to center when cursor leaves section container
+                   smokeBox.addEventListener('mouseleave', () => {
+                   smokeBgVideo.style.transform = 'translate(-50%, -50%)';
+                   });
+               }
+            </script>
 	</body>
 </html>
