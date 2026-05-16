@@ -42,15 +42,23 @@
             </section>
 
 		<!-- One -->
-			<section id="one" class="main style2 right dark fullscreen">
-				<div class="content box style2">
-					<header>
-						<h2>What I Do</h2>
-					</header>
-					<p>I transform raw footage into high-converting, visually stunning video content. Specializing in advanced video editing and motion graphics, I help creators and businesses stand out. Whether it's high-retention gaming content, engaging talking-head videos, or sleek SaaS motion graphic sequences, I focus on pacing, storytelling, and kinetic typography that keeps viewers hooked from the first second to the last.</p>
-				</div>
-				<a href="#two" class="button style2 down anchored">Next</a>
-			</section>
+			<section id="one" class="main style2 right dark fullscreen" style="position: relative; overflow: hidden; background: none;">
+    
+                <video id="smoke-bg-video" autoplay loop muted playsinline style="position: absolute; top: 50%; left: 50%; width: 115%; height: 115%; object-fit: cover; transform: translate(-50%, -50%); z-index: 0; pointer-events: none; transition: transform 0.15s ease-out;">
+                <source src="images/abstract-blue-smoke.mp4" type="video/mp4">
+            </video>
+    
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+
+            <div class="content box style2" style="position: relative; z-index: 2;">
+             <header>
+               <h2>What I Do</h2>
+             </header>
+            <p>I transform raw footage into high-converting, visually stunning video content. Specializing in advanced video editing and motion graphics, I help creators and businesses stand out. Whether it's high-retention gaming content, engaging talking-head videos, or sleek SaaS motion graphic sequences, I focus on pacing, storytelling, and kinetic typography that keeps viewers hooked from the first second to the last.</p>
+            </div>
+    
+               <a href="#two" class="button style2 down anchored" style="position: relative; z-index: 2;">Next</a>
+            </section>
 
 		<!-- Two -->
 			<section id="two" class="main style2 left dark fullscreen">
