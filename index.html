@@ -69,18 +69,22 @@
             </section>
 
 		<!-- Two -->
-			<section id="two" class="main style2 left dark fullscreen">
-				<div class="content box style2">
-					<header>
-						<h2>Who I Am</h2>
-					</header>
-					<p>I’m a video editor and motion graphics artist who loves turning messy, complex ideas into clean, engaging visual content.
-					My workflow is all about creative problem-solving—whether I'm spending hours perfecting a 60-second Saas motion graphics video
-					or perfectly pacing out a high-energy gaming edit/documentary. I’m always pushing myself to try new styles and techniques to make 
-					sure every project feels fresh, polished, and actually stands out online.</p>
-				</div>
-				<a href="#work" class="button style2 down anchored">Next</a>
-			</section>
+			<section id="two" class="main style2 left dark fullscreen" style="position: relative; overflow: hidden; background: #0b0c10 !important; margin-top: -2px; z-index: 4;">
+        
+        <video id="who-iam-video" autoplay loop muted playsinline style="position: absolute; top: 50%; left: 50%; width: 115%; height: 115%; object-fit: cover; transform: translate(-50%, -50%); z-index: 0; pointer-events: none; transition: transform 0.15s ease-out;">
+            <source src="who-i-am-bg.mp4" type="video/mp4">
+        </video>
+        
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+
+        <div class="content box style2" style="position: relative; z-index: 2; border-radius: 16px; animation: smoothFloat 4s ease-in-out infinite;">
+            <header>
+                <h2>Who I Am</h2>
+            </header>
+            <p>I’m a video editor and motion graphics artist who loves turning messy, complex ideas into clean, engaging visual content. My workflow is all about creative problem-solving—whether I’m spending hours perfecting a 60-second Saas motion graphics video or perfectly pacing out a high-energy gaming edit/documentary. I’m always pushing myself to try new styles and techniques to make sure every project feels fresh, polished, and actually stands out online.</p>
+        </div>
+        <a href="#work" class="button style2 down anchored" style="position: relative; z-index: 2;">Next</a>
+    </section>
 
 		<!-- Work -->
 			<section id="work" class="main style3 primary">
@@ -194,38 +198,43 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
             <script>
-    // --- INTRO SECTION TRACKING ---
+    // 1. INTRO SECTION
     const introArea = document.getElementById('intro');
     const introVideo = document.getElementById('intro-live-video');
 
     if (introArea && introVideo) {
         introArea.addEventListener('mousemove', (e) => {
-            const intensity = 40; // Shifting responsiveness rate
-            const moveX = (e.clientX / window.innerWidth - 0.5) * intensity;
-            const moveY = (e.clientY / window.innerHeight - 0.5) * intensity;
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 40;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 40;
             introVideo.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
         });
-
-        introArea.addEventListener('mouseleave', () => {
-            introVideo.style.transform = 'translate(-50%, -50%)';
-        });
+        introArea.addEventListener('mouseleave', () => { introVideo.style.transform = 'translate(-50%, -50%)'; });
     }
 
-    // --- SECTION ONE (SMOKE VIDEO) TRACKING ---
+    // 2. WHAT I DO SECTION (SMOKE VIDEO)
     const smokeBox = document.getElementById('one');
     const smokeBgVideo = document.getElementById('smoke-bg-video');
 
     if (smokeBox && smokeBgVideo) {
         smokeBox.addEventListener('mousemove', (e) => {
-            const sensitivity = 40;
-            const moveX = (e.clientX / window.innerWidth - 0.5) * sensitivity;
-            const moveY = (e.clientY / window.innerHeight - 0.5) * sensitivity;
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 40;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 40;
             smokeBgVideo.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
         });
+        smokeBox.addEventListener('mouseleave', () => { smokeBgVideo.style.transform = 'translate(-50%, -50%)'; });
+    }
 
-        smokeBox.addEventListener('mouseleave', () => {
-            smokeBgVideo.style.transform = 'translate(-50%, -50%)';
+    // 3. WHO I AM SECTION (NEW VIDEO)
+    const whoArea = document.getElementById('two');
+    const whoVideo = document.getElementById('who-iam-video');
+
+    if (whoArea && whoVideo) {
+        whoArea.addEventListener('mousemove', (e) => {
+            const moveX = (e.clientX / window.innerWidth - 0.5) * 40;
+            const moveY = (e.clientY / window.innerHeight - 0.5) * 40;
+            whoVideo.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px))`;
         });
+        whoArea.addEventListener('mouseleave', () => { whoVideo.style.transform = 'translate(-50%, -50%)'; });
     }
 </script>
 	</body>
