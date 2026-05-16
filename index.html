@@ -229,6 +229,9 @@
     const whoVideo = document.getElementById('who-iam-video');
 
     if (whoArea && whoVideo) {
+        // Force the video element to play in super slow motion (0.30 = 30% speed)
+        whoVideo.playbackRate = 0.3;
+
         whoArea.addEventListener('mousemove', (e) => {
             const moveX = (e.clientX / window.innerWidth - 0.5) * 40;
             const moveY = (e.clientY / window.innerHeight - 0.5) * 40;
